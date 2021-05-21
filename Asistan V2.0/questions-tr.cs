@@ -34,6 +34,16 @@ namespace Asistan_V2._0
                     System.Diagnostics.Process.Start($"https://tr.wikipedia.org/w/index.php?search={user_link}&title=%C3%96zel%3AAra&go=Git");
                     return $"`{user_link}` konusu Vikipedi'da aranıyor...";
                 }
+                else if (user_message.Contains("git hub") || user_message.Contains("github"))
+                {
+                    Process.Start($"https://github.com/search?q={user_link}");
+                    return "GitHub'da aranıyor...";
+                }
+                else if (user_message.Contains("hava durumu"))
+                {
+                    Process.Start($"https://www.accuweather.com/tr/search-locations?query={user_link}");
+                    return "Hava Durumu açılıyor...";
+                }
                 else if (user_message.Contains("you tube") || user_message.Contains("youtube"))
                 {
                     Process.Start($"https://www.youtube.com/results?search_query={user_link}");
@@ -141,7 +151,7 @@ namespace Asistan_V2._0
                 }
                 else if (user_message.Contains("rastgele"))
                 {
-                    return "İşte rastgele kategorisindeki komutlar:" + Environment.NewLine +
+                    return "Rastgele komutunuzu `rastgele müzik` şeklinde kullanmanız gerekmektedir. İşte rastgele kategorisindeki komutlar:" + Environment.NewLine +
                         "•video : Sizin için bir rastgele video açar." + Environment.NewLine +
                         "•müzik : Sizin için rastgele bir şarkı açar." + Environment.NewLine +
                         "•konum : Sizi dünyanın herhangi bir noktasına ışınlar." + Environment.NewLine +
@@ -158,7 +168,7 @@ namespace Asistan_V2._0
                     Environment.NewLine +
                     "Sohbet : selam • nasılsın ..." + Environment.NewLine +
                     "Sistem : saat • tarih • zaman • hesap makinesi ..." + Environment.NewLine +
-                    "İnternet : nedir • google • youtube • vikipedi • spotify • harita • çevir ..." + Environment.NewLine +
+                    "İnternet : nedir • google • youtube • vikipedi • spotify • harita • hava durumu • çevir ..." + Environment.NewLine +
                     "Rastgele : video • müzik • konum • renk...";
                 }
             }
@@ -209,13 +219,32 @@ namespace Asistan_V2._0
             }
             
             
-            
+            else if ((user_message.Contains("hangi") || user_message.Contains("ne")) && user_message.Contains("din")) 
+            {
+                return "Benim dinim yok.";
+            }
+            else if (user_message.Contains("tekrar"))
+            {
+                return "Çakal mısın?";
+            }
+            else if (user_message.Contains("tamam"))
+            {
+                return "Tamam";
+            }
+            else if (user_message.Contains("peki"))
+            {
+                return "Peki";
+            }
+            else if (user_message.Contains("kekw"))
+            {
+                return "IBO";
+            }
             else if (user_message.Contains("merhaba"))
             { return "Sanada merhaba!"; }
             else if (user_message.Contains("selam")) 
             { return "Sanada selam!"; }
             else if (user_message.Contains("nasılsın"))
-            { return "İyidir."; }
+            { return "Robotların duyguları yoktur. Siz nasılsınız?"; }
             else if (user_message.Contains("çevir"))
             {
                 return "Çeviriyi bu formatta kullanmalısınız:`çevir !çevirilecek yazı , birinci dil-ikinci dil`." +
@@ -233,7 +262,11 @@ namespace Asistan_V2._0
                     + "Rusça - ru" + Environment.NewLine
                     + "Türkçe - tr" + Environment.NewLine;
             }
-            
+            else if (user_message.Contains("github") || user_message.Contains("git hub"))
+            {
+                Process.Start("https://github.com/mehmet-mert");
+                return "GitHub profilimi açıyorum. (Repolarımı yıldızla!!!)";
+            }
             else if (user_message.Contains("hesap makin"))
             {
                 Process.Start(@"calc.exe");
@@ -269,7 +302,10 @@ namespace Asistan_V2._0
             {
                 return "`nedir` komutunu kullanmak için `nedir !aranacak sözcük` komutunu kullanabilirsiniz.";
             }
-            
+            else if (user_message.Contains("teşekkür"))
+            {
+                return "Rica Ederim";
+            }
             else { return "Probleminizi tam olarak anlayamadım. Muhtemelen komutunuzu yanlış girdiniz." +
                     " Ünlem işareti ile kullanmayı deneyin. Yardım almak için `yardım` yazabilirsiniz!"; }
         }
